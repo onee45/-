@@ -137,7 +137,7 @@
             margin-bottom: 16px;
         }
 
-       .result-headline {
+        .result-headline {
             text-align: center;
             margin-bottom: 12px;
         }
@@ -242,23 +242,6 @@
             border-radius: 24px;
             padding: 18px 16px;
             box-shadow: 5px 5px 0 #333;
-        }
-
-        .weapons-card {
-            background: #f5e19a;
-        }
-
-        .sub-card {
-            background: #d9edf3;
-        }
-
-        .info-card h3 {
-            margin: 0 0 14px;
-            text-align: center;
-            font-size: 1.85rem;
-            line-height: 1.2;
-            color: #111;
-            font-family: 'Jua', sans-serif;
         }
 
         .weapons-card {
@@ -367,7 +350,7 @@
         <h1>🛠️ 포철공고 캐릭터 테스트 🛠️</h1>
         <p class="subtitle">
             나는 어떤 유형의 캐릭터일까?<br>
-            나의 영어 무기도 확인해 보자구!
+            나의 영어 무기도 확인해 보자!
         </p>
 
         <div class="big-emoji-box" aria-label="유형 동물 이모지">
@@ -435,182 +418,243 @@
 <script>
     const questionsData = [
         {
-    question: "1. 실습 시간. 기계가 갑자기 ‘끼기긱...’ 하면서 수상한 소리를 냈다. 반 애들 시선이 전부 너한테 꽂힘. 너는?",
-    options: [
-      { text: "“잠깐, 이거 그냥 넘기면 더 큰일 날 듯. 왜 이런 소리 나는지 직접 봐야겠다.” 하고 원인부터 캐본다.", type: "도전형" },
-      { text: "“야 일단 다 뒤로 가. 괜히 만지지 마.” 하면서 사람부터 정리한다.", type: "협력형" },
-      { text: "“비켜봐. 내가 해봄.” 하고 이미 공구부터 들고 있다.", type: "실행형" },
-          { text: "“에이 아직 안 터졌잖아~” 하면서 상황을 웃어넘긴다.", type: "긍정형" }
-        ]
-      },
-      {
-        question: "2. 수행평가 제출 30분 전. USB가 갑자기 먹통이 됐다.",
-        options: [
-          { text: "“야 저장 안 한 거 아니지? 일단 백업부터 확인하자.” 최악 상황부터 체크한다.", type: "안전형" },
-          { text: "“이거 폰으로 옮겨서 해결 가능하지 않나?” 다른 방법 찾는다.", type: "도전형" },
-          { text: "“아직 30분이나 남았네.” 말없이 처음부터 다시 시작한다.", type: "끈기형" },
-          { text: "“언제부터 안 됐는지 말해봐.” 증상부터 추적하면서 머릿속으로 복기한다.", type: "분석형" }
-        ]
-      },
-      {
-        question: "3. 쉬는시간, 친구들이 매점 간다는데 수업 시작 5분 전이다.",
-        options: [
-          { text: "“야 시간 없으니까 각자 하나씩 맡아서 사오자. 내가 계산 맡음.” 하면서 역할부터 정리한다.", type: "협력형" },
-          { text: "말보다 먼저 튀어나가서 이미 계단 두 칸씩 뛰어 내려가고 있다.", type: "실행형" },
-          { text: "“지금 내려갔다 오면 100% 늦는다. 그냥 다음 쉬는시간 가자.” 현실적으로 막는다.", type: "안전형" },
-          { text: "“야 걸리면 단체로 혼나는 거지 뭐ㅋㅋ 일단 가자” 하면서 분위기 끌고 간다.", type: "긍정형" }
-        ]
-      },
-      {
-        question: "4. 조별과제 회의 시간. 친구 한 명이 갑자기 “그냥 감으로 하자”라고 선언했다. 너의 반응은?",
-        options: [
-          { text: "“감으로 하지 말고 다른 팀 뭐 했는지부터 보자.” 하고 다른 방향도 탐색한다.", type: "도전형" },
-          { text: "“감은 무슨 감이야, 기준이 있어야지.” 자료랑 조건부터 따진다.", type: "분석형" },
-          { text: "“됐고 오늘 안에 끝낸다.” 말보다 진행 속도로 밀어붙인다", type: "끈기형" },
-          { text: "“야 싸우지 말고 일단 공통 의견부터 맞추자.” 분위기부터 정리한다.", type: "협력형" }
-        ]
-      },
-      {
-        question: "5. 기숙사에서 불 다 끄고 누웠는데 갑자기 흑역사, 미래 걱정, 쓸데없는 상상이 단체로 몰려온다. 이때 너는?",
-        options: [
-          { text: "“그만 생각하자… 자야 산다.” 억지로라도 생각 끊는다.", type: "안전형" },
-          { text: "“아 몰라, 폰이나 보자.” 바로 다른 행동으로 넘어간다.", type: "실행형" },
-          { text: "“근데 내가 왜 이런 생각을 하지...?” 하고 셀프 분석을 시작한다.", type: "분석형" },
-          { text: "“오 이것도 재밌는데?” 하고 상상에 상상을 더 얹는다.", type: "긍정형" }
-        ]
-      },
-      {
-        question: "6. 시험 전날 밤 11시. 친구가 단톡방에 “나 이거 1도 모르겠음”이라고 올렸다. 너는?",
-        options: [
-          { text: "“어디서부터 막혔는지 말해봐.” 흐름부터 다시 잡아준다.", type: "분석형" },
-          { text: "“야 와봐. 같이 보면 금방 이해됨.” 옆에 붙여서 같이 본다.", type: "협력형" },
-          { text: "“모르면 그냥 외워.” 하고 조용히 자기 할 거 한다.", type: "끈기형" },
-          { text: "“이거 10분 컷 가능.” 핵심만 바로 찍어준다.", type: "실행형" }
-        ]
-      },
-      {
-        question: "7. 체육대회 계주 멤버 한 명이 갑자기 사라졌다. 반 애들 시선이 슬금슬금 너한테 모인다. 너는?",
-        options: [
-          { text: "“어차피 인생도 대타의 연속이지.” 하면서 웃으면서 그냥 뛴다.", type: "긍정형" },
-          { text: "“잠깐, 순서 바꾸면 더 나을 듯?” 전략부터 수정한다.", type: "도전형" },
-          { text: "“워밍업 안 하고 뛰면 바로 다친다” 몸 상태부터 체크한다.", type: "안전형" },
-          { text: "“앞사람 기록이랑 내 스타트 타이밍 계산해보면...” 이미 머리 굴리는 중.", type: "분석형" }
-        ]
-      },
-      {
-        question: "8. 축제 부스 운영 중인데 갑자기 줄이 미친 듯이 길어졌다.",
-options: [
-  { text: "“야 줄부터 세우고, 설명하는 애랑 만드는 애 나누자.” 바로 역할 정리한다.", type: "협력형" },
-  { text: "“일단 되는 것부터 계속 찍어내면 된다.” 말없이 계속 만든다.", type: "끈기형" },
-  { text: "말보다 손이 먼저 움직여서 이미 두 개씩 동시에 처리하고 있다.", type: "실행형" },
-  { text: "“야 그냥 설명 빨리 돌리고 텐션으로 밀자ㅋㅋ” 갑자기 진행 스타일을 바꾼다.", type: "도전형" }
-]
-      },
-      {
-        question: "9. 체육 시간 직전, 친구가 갑자기 “야 나 체육복 없어짐.” 이라고 함. 너는?",
-        options: [
-          { text: "“마지막으로 입었던 게 언제냐, 동선부터 다시 생각해봐.” 상황부터 역추적한다.", type: "분석형" },
-          { text: "“야 일단 내 거 하나 빌려 입어. 나 반팔이라도 입고 뛴다.” 현실적으로 같이 해결한다.", type: "협력형" },
-          { text: "“야 걸리면 그때 생각하자ㅋㅋ 일단 나가보자” 별일 아닌 듯 넘긴다.", type: "긍정형" },
-          { text: "“그래서 내가 전날에 챙기라고 했지…” 재발 방지부터 떠올린다.", type: "안전형" }
-        ]
-      },
-      {
-        question: "10. 실습 과제 난이도 갑자기 헬 모드. 교실 전체 분위기: 멘탈 붕괴.",
-        options: [
-          { text: "“오늘 안 되면 내일도 하지 뭐.” 묵묵히 해서 결국 끝을 본다.", type: "끈기형" },
-          { text: "“일단 시작하면 어떻게든 되겠지” 머리보다 손이 먼저 움직인다.", type: "실행형" },
-          { text: "“이 방식 말고 아예 다른 접근 없나?” 새로운 길을 찾는다.", type: "도전형" },
-          { text: "“무리해서 하다 사고 나면 진짜 답 없다.” 천천히 안전하게 간다.", type: "안전형" }
-        ]
-      },
-      {
-        question: "11. 친구가 시험 망하고 “나 진짜 끝났다...” 하면서 책상에 엎어졌다. 너는?",
-        options: [
-          { text: "“어느 파트가 털렸는지부터 보자.” 팩트 기반으로 정리한다.", type: "분석형" },
-          { text: "“한 번 망했다고 인생 안 끝남ㅎ.” 하고 같이 매점이나 간다", type: "긍정형" },
-          { text: "“야 밥부터 먹자. 사람은 밥 먹고 망해야 덜 서럽다.” 옆에 있어준다.", type: "협력형" },
-          { text: "“다음 시험 때 뒤집으면 됨.” 말보다 꾸준함을 믿는다.", type: "끈기형" }
-        ]
-      },
-      {
-        question: "12. 선생님께서 갑자기 ‘이거 해볼 사람?’이라고 말했다. 교실 공기 싸해지고, 다들 책 보는 척.",
-        options: [
-          { text: "“제가 하는 대신 좀 다른 방식으로 해봐도 돼요?” 새 판을 깐다.", type: "도전형" },
-          { text: "“조건이 뭐고, 어디까지 하면 되는 거죠?” 범위부터 정확히 확인한다.", type: "안전형" },
-          { text: "일단 손부터 들고 나간다. 생각은 나가서 한다.", type: "실행형" },
-          { text: "“일단 하다보면 되겠지 뭐…” 나가서 꾸역꾸역 끝까지 해본다.", type: "끈기형" }
-        ]
-      },
-      {
-        question: "13. 주말에 놀러 가자는 말이 나왔는데 계획은 없음. 지금 상태: 말만 100%, 실행 0%.",
-        options: [
-          { text: "“야 누구 빠지면 섭섭하니까 일단 인원부터 확정하자.” 사람부터 챙긴다.", type: "협력형" },
-          { text: "“가서 망하면 또 그게 추억이지 ㅋㅋ” 별일 아니란 듯 판을 키운다.", type: "긍정형" },
-          { text: "“한번 가기로 했으면 빼지 말자.” 끝까지 추진할 생각부터 한다.", type: "끈기형" },
-          { text: "“근데 남들 다 가는 데 말고, 좀 새로운 데 갈래?” 루트를 비튼다.", type: "도전형" }
-        ]
-      },
-      {
-        question: "14. 기숙사에서 몰래 컵라면 먹는데 사감쌤 발소리 들리다가 문 앞에서 딱 멈췄고, 지금 방 안은 라면 냄새 풀확산 상태. 너는?",
-        options: [
-          { text: "“불부터 끄고… 창문 열고… 증거부터 없애자.” 최대한 안전하게 상황 정리한다.", type: "안전형" },
-          { text: "“그냥 문 열고 인정한다. 어차피 걸릴 거 깔끔하게 가자.” 바로 행동한다.", type: "실행형" },
-          { text: "“잠깐, 냄새 빠지는 시간 계산해보자… 지금 열면 더 위험한데?” 상황을 계산한다.", type: "분석형" },
-          { text: "“쌤 들어오시면 같이 드실래요? 하면 안 통하냐?” 이상하게 긍정적으로 간다.", type: "긍정형" }
-        ]
-      }
+            question: "1. 실습 시간. 기계가 갑자기 ‘끼기긱...’ 하면서 수상한 소리를 냈다. 반 애들 시선이 전부 너한테 꽂힘. 너는?",
+            options: [
+                { text: "“잠깐, 이거 그냥 두면 더 크게 터질 듯? 직접 뜯어보자.” 바로 건드린다.", type: "도전형" },
+                { text: "“야 일단 다 뒤로 가. 괜히 만지지 마.” 하면서 사람부터 정리한다.", type: "협력형" },
+                { text: "“비켜봐. 내가 해봄.” 하고 이미 공구부터 들고 있다.", type: "실행형" },
+                { text: "“에이 아직 안 터졌잖아~” 하면서 상황을 웃어넘긴다.", type: "긍정형" }
+            ]
+        },
+        {
+            question: "2. 수행평가 제출 30분 전. USB가 갑자기 먹통이 됐다.",
+            options: [
+                { text: "“야 저장 안 한 거 아니지? 일단 최악 상황부터 대비하자.” 위험부터 막는다.", type: "안전형" },
+                { text: "“이거 폰으로 옮겨서 해결 가능하지 않나?” 다른 방법 찾는다.", type: "도전형" },
+                { text: "“아직 30분이나 남았네.” 말없이 처음부터 다시 시작한다.", type: "끈기형" },
+                { text: "“언제부터 안 됐는지 말해봐.” 증상부터 추적하면서 머릿속으로 복기한다.", type: "분석형" }
+            ]
+        },
+        {
+            question: "3. 쉬는시간, 친구들이 매점 간다는데 수업 시작 5분 전이다.",
+            options: [
+                { text: "“야 시간 없으니까 각자 하나씩 맡아서 사오자. 내가 계산 맡음.” 하면서 역할부터 정리한다.", type: "협력형" },
+                { text: "말보다 먼저 튀어나가서 이미 계단 두 칸씩 뛰어 내려가고 있다.", type: "실행형" },
+                { text: "“지금 내려갔다 오면 100% 늦는다. 그냥 다음 쉬는시간 가자.” 현실적으로 막는다.", type: "안전형" },
+                { text: "“야 걸리면 같이 죽는 거지ㅋㅋ 일단 가” 분위기로 밀어붙인다.", type: "긍정형" }
+            ]
+        },
+        {
+            question: "4. 조별과제 회의 시간. 친구 한 명이 갑자기 “그냥 감으로 하자”라고 선언했다. 너의 반응은?",
+            options: [
+                { text: "“이거 말고 아예 다른 방식으로 가면 안 되냐?” 흐름 자체를 바꾼다.", type: "도전형" },
+                { text: "“감은 무슨 감이야, 기준이 있어야지.” 자료랑 조건부터 따진다.", type: "분석형" },
+                { text: "“됐고 오늘 안에 끝낸다. 밤 샌다고 생각해라.” 그냥 밀어붙인다.", type: "끈기형" },
+                { text: "“야 싸우지 말고 일단 공통 의견부터 맞추자.” 분위기부터 정리한다.", type: "협력형" }
+            ]
+        },
+        {
+            question: "5. 기숙사에서 불 다 끄고 누웠는데 갑자기 흑역사, 미래 걱정, 쓸데없는 상상이 단체로 몰려온다. 이때 너는?",
+            options: [
+                { text: "“그만 생각하자… 자야 산다.” 억지로라도 생각 끊는다.", type: "안전형" },
+                { text: "“아 몰라, 폰이나 보자.” 바로 다른 행동으로 넘어간다.", type: "실행형" },
+                { text: "“근데 내가 왜 이런 생각을 하지...?” 하고 셀프 분석을 시작한다.", type: "분석형" },
+                { text: "“오 이것도 재밌는데?” 하고 상상에 상상을 더 얹는다.", type: "긍정형" }
+            ]
+        },
+        {
+            question: "6. 시험 전날 밤 11시. 친구가 단톡방에 “나 이거 1도 모르겠음”이라고 올렸다. 너는?",
+            options: [
+                { text: "“어디서부터 막혔는지 말해봐.” 흐름부터 다시 잡아준다.", type: "분석형" },
+                { text: "“야 와봐. 내가 설명해준다.” 옆에 붙여서 같이 해결한다.", type: "협력형" },
+                { text: "“모르면 그냥 외워.” 하고 조용히 자기 할 거 한다.", type: "끈기형" },
+                { text: "“책 줘봐. 지금 바로 끝내준다.” 바로 손 댄다.", type: "실행형" }
+            ]
+        },
+        {
+            question: "7. 체육대회 계주 멤버 한 명이 갑자기 사라졌다. 반 애들 시선이 슬금슬금 너한테 모인다. 너는?",
+            options: [
+                { text: "“어차피 인생도 대타의 연속이지.” 하면서 웃으면서 그냥 뛴다.", type: "긍정형" },
+                { text: "“잠깐, 순서 바꾸면 더 나을 듯?” 전략부터 수정한다.", type: "도전형" },
+                { text: "“워밍업 안 하고 뛰면 바로 다친다” 몸 상태부터 체크한다.", type: "안전형" },
+                { text: "“앞사람 기록이랑 내 스타트 타이밍 계산해보면...” 이미 머리 굴리는 중.", type: "분석형" }
+            ]
+        },
+        {
+            question: "8. 축제 부스 운영 중인데 갑자기 줄이 미친 듯이 길어졌다.",
+            options: [
+                { text: "“야 줄부터 세우고, 설명하는 애랑 만드는 애 나누자.” 바로 역할 정리한다.", type: "협력형" },
+                { text: "“일단 되는 것부터 계속 찍어내면 된다.” 말없이 계속 만든다.", type: "끈기형" },
+                { text: "말보다 손이 먼저 움직여서 이미 두 개씩 동시에 처리하고 있다.", type: "실행형" },
+                { text: "“야 줄 저거 감당 안 된다. 설명 줄이고 그냥 빨리 돌리자” 진행 방식을 바꾼다.", type: "도전형" }
+            ]
+        },
+        {
+            question: "9. 체육 시간 직전, 친구가 갑자기 “야 나 체육복 없어짐.” 이라고 함. 너는?",
+            options: [
+                { text: "“마지막으로 입었던 게 언제냐, 동선부터 다시 생각해봐.” 상황부터 역추적한다.", type: "분석형" },
+                { text: "“야 일단 내 거 하나 빌려 입어. 나 반팔이라도 입고 뛴다.” 현실적으로 같이 해결한다.", type: "협력형" },
+                { text: "“야 걸리면 그때 생각하자ㅋㅋ 일단 나가보자” 별일 아닌 듯 넘긴다.", type: "긍정형" },
+                { text: "“그래서 내가 전날에 챙기라고 했지…” 재발 방지부터 떠올린다.", type: "안전형" }
+            ]
+        },
+        {
+            question: "10. 실습 과제 난이도 갑자기 헬 모드. 교실 전체 분위기: 멘탈 붕괴.",
+            options: [
+                { text: "“오늘 안 되면 내일도 하지 뭐.” 묵묵히 해서 결국 끝을 본다.", type: "끈기형" },
+                { text: "“일단 시작하면 어떻게든 되겠지” 머리보다 손이 먼저 움직인다.", type: "실행형" },
+                { text: "“이 방식 말고 아예 다른 접근 없나?” 새로운 길을 찾는다.", type: "도전형" },
+                { text: "“무리해서 하다 사고 나면 진짜 답 없다.” 천천히 안전하게 간다.", type: "안전형" }
+            ]
+        },
+        {
+            question: "11. 친구가 시험 망하고 “나 진짜 끝났다...” 하면서 책상에 엎어졌다. 너는?",
+            options: [
+                { text: "“어느 파트가 털렸는지부터 보자.” 팩트 기반으로 정리한다.", type: "분석형" },
+                { text: "“한 번 망했다고 인생 안 끝남ㅎ.” 하고 같이 매점이나 간다", type: "긍정형" },
+                { text: "“야 밥부터 먹자. 사람은 밥 먹고 망해야 덜 서럽다.” 옆에 있어준다.", type: "협력형" },
+                { text: "“다음 시험 때 뒤집으면 됨.” 말보다 꾸준함을 믿는다.", type: "끈기형" }
+            ]
+        },
+        {
+            question: "12. 선생님께서 갑자기 ‘이거 해볼 사람?’이라고 말했다. 교실 공기 싸해지고, 다들 책 보는 척.",
+            options: [
+                { text: "“제가 좀 다른 방식으로 해봐도 돼요?” 판을 새로 깐다.", type: "도전형" },
+                { text: "“조건이 뭐고, 어디까지 하면 되는 거죠?” 범위부터 정확히 확인한다.", type: "안전형" },
+                { text: "일단 손부터 들고 나간다. 생각은 나가서 한다.", type: "실행형" },
+                { text: "“일단 하다보면 되겠지 뭐…” 나가서 꾸역꾸역 끝까지 해본다.", type: "끈기형" }
+            ]
+        },
+        {
+            question: "13. 주말에 놀러 가자는 말이 나왔는데 계획은 없음. 지금 상태: 말만 100%, 실행 0%.",
+            options: [
+                { text: "“야 누구 빠지면 섭섭하니까 일단 인원부터 확정하자.” 사람부터 챙긴다.", type: "협력형" },
+                { text: "“가서 망하면 또 그게 추억이지 ㅋㅋ” 별일 아니란 듯 판을 키운다.", type: "긍정형" },
+                { text: "“한번 가기로 했으면 빼지 말자.” 끝까지 추진할 생각부터 한다.", type: "끈기형" },
+                { text: "“근데 남들 다 가는 데 말고, 좀 새로운 데 갈래?” 루트를 비튼다.", type: "도전형" }
+            ]
+        },
+        {
+            question: "14. 기숙사에서 몰래 컵라면 먹는데 사감쌤 발소리 들리다가 문 앞에서 딱 멈췄고, 지금 방 안은 라면 냄새 풀확산 상태. 너는?",
+            options: [
+                { text: "“불부터 끄고… 창문 열고… 증거부터 없애자.” 최대한 안전하게 상황 정리한다.", type: "안전형" },
+                { text: "“그냥 문 열고 인정한다. 어차피 걸릴 거 깔끔하게 가자.” 바로 행동한다.", type: "실행형" },
+                { text: "“잠깐, 냄새 빠지는 시간 계산해보자… 지금 열면 더 위험한데?” 상황을 계산한다.", type: "분석형" },
+                { text: "“쌤 들어오시면 같이 드실래요? 하면 안 통하냐?” 이상하게 긍정적으로 간다.", type: "긍정형" }
+            ]
+        }
     ];
+
+    const weaponPools = {
+
+  "분석형": {
+    basicAdjectives: ["careful", "curious", "observant", "focused"],
+    proAdjectives: ["analytical", "logical", "methodical", "systematic", "detail-oriented"],
+    advancedAdjectives: ["meticulous", "precise", "thorough", "strategic"],
+    nouns: ["problem-solving ability", "analytical thinking", "attention to detail", "precision"],
+    verbPhrases: ["analyze problems", "identify causes", "troubleshoot issues", "solve technical issues", "verify results"],
+    adverbs: ["systematically", "logically", "carefully", "accurately"]
+  },
+
+  "협력형": {
+    basicAdjectives: ["helpful", "friendly", "considerate"],
+    proAdjectives: ["collaborative", "cooperative", "communicative", "supportive", "reliable"],
+    advancedAdjectives: ["diplomatic", "harmonious", "respectful", "loyal"],
+    nouns: ["teamwork skills", "communication skills", "team spirit"],
+    verbPhrases: ["support team members", "coordinate tasks", "communicate ideas", "collaborate with others"],
+    adverbs: ["cooperatively", "harmoniously", "effectively"]
+  },
+
+  "끈기형": {
+    basicAdjectives: ["hardworking", "punctual", "responsible", "honest"],
+    proAdjectives: ["diligent", "dedicated", "disciplined", "committed", "reliable"],
+    advancedAdjectives: ["persistent", "determined", "consistent"],
+    nouns: ["strong work ethic", "perseverance", "responsibility"],
+    verbPhrases: ["complete my tasks", "improve my skills", "learn new technologies", "practice my skills"],
+    adverbs: ["consistently", "steadily", "patiently"]
+  },
+
+  "도전형": {
+    basicAdjectives: ["curious", "open-minded", "flexible", "proactive"],
+    proAdjectives: ["adaptable", "creative", "innovative", "independent", "solution-driven"],
+    advancedAdjectives: ["resourceful", "pragmatic", "versatile", "forward-thinking"],
+    nouns: ["adaptability", "innovation", "learning ability", "problem-solving mindset", "curiosity"],
+    verbPhrases: ["learn new technologies", "explore new ideas", "try new methods", "adapt to changes", "find better approaches", "improve processes"],
+    adverbs: ["actively", "creatively", "quickly", "independently"]
+  },
+
+  "안전형": {
+    basicAdjectives: ["careful", "cautious", "calm", "responsible"],
+    proAdjectives: ["safety-conscious", "reliable", "alert", "consistent"],
+    advancedAdjectives: ["uncompromising", "risk-aware", "disciplined"],
+    nouns: ["safety awareness", "risk management", "safety compliance"],
+    verbPhrases: ["follow safety rules", "inspect equipment", "ensure safety conditions", "prevent accidents", "report hazards"],
+    adverbs: ["safely", "carefully", "strictly", "consistently"]
+  },
+
+  "긍정형": {
+    basicAdjectives: ["positive", "motivated", "friendly"],
+    proAdjectives: ["solution-oriented", "optimistic", "resilient", "supportive"],
+    advancedAdjectives: ["enthusiastic", "passionate", "morale-boosting"],
+    nouns: ["team spirit", "team morale", "motivation", "positive influence"],
+    verbPhrases: ["encourage teammates", "stay motivated", "support others", "boost team morale", "keep the team motivated", "create a positive work environment"],
+    adverbs: ["enthusiastically", "positively", "actively", "consistently"]
+  },
+
+  "실행형": {
+    basicAdjectives: ["proactive", "practical", "responsive", "efficient"],
+    proAdjectives: ["action-oriented", "confident", "task-focused"],
+    advancedAdjectives: ["results-driven", "decisive", "goal-oriented"],
+    nouns: ["initiative", "execution ability", "drive"],
+    verbPhrases: ["take initiative", "take initiative in my tasks", "solve problems", "respond to issues"],
+    adverbs: ["promptly", "efficiently", "actively", "quickly"]
+  },
+
+  "공통": {
+    adjectives: ["responsible", "careful", "reliable"],
+    nouns: ["responsibility", "teamwork", "problem-solving ability", "professionalism"],
+    verbPhrases: ["collaborate with others", "improve my skills", "take responsibility"],
+    adverbs: ["consistently", "effectively", "responsibly"]
+  }
+
+};
 
     const resultsData = {
         "분석형": {
             name: "명탐정 부엉이",
             image: "./owl.jpg",
-            desc: "너는 문제를 보면 그냥 못 지나친다. 기계에서 소리 한 번 나면 다른 애들은 ‘어 뭐야’ 하고 뒤로 빠지는데, 너만 갑자기 눈빛 변하면서 ‘잠깐, 이거 어디서 나는 소리지?’ 하면서 분석 들어간다. 남들이 ‘대충 되겠지’ 하고 넘기려는 것도 너는 ‘근데 왜 되는 건데?’ 하면서 끝까지 판다. 솔직히 옆에서 보면 좀 피곤하다. 아니 많이 피곤하다. 근데 진짜 문제 터지면 제일 먼저 찾는 것도 너다. 평소엔 과몰입 오타쿠 같다가도, 막상 사고 나면 반 애들이 ‘야 걔 어디 갔냐 빨리 불러’ 이러는 타입. 단점? 생각을 너무 많이 해서 혼자 머릿속에서 2회차, 3회차 돌리다가 타이밍 놓침. 그래도 결국 원인 잡아내는 건 너다. <br><br><strong>한 줄 요약</strong> 평소엔 피곤한데, 고장 나면 제일 먼저 찾게 되는 인간 디버거.",
-        weapons: ["Analytical", "Logical", "Problem-solving ability", "Attention to detail", "Systematically"]
-    },
-
+            desc: "너는 문제를 보면 그냥 못 넘긴다. 남들이 ‘대충 되겠지’ 할 때 너 혼자 ‘근데 왜 되는 건데?’ 하면서 끝까지 파고든다. 기계에서 이상한 소리 나면 다른 애들은 뒤로 빠지는데 너만 갑자기 눈 돌아가서 소리 근원 찾고 있음. 그래서 평소엔 약간 피곤한 애 취급 받는데, 막상 문제 터지면 제일 먼저 찾는 것도 너다. 단점은 생각을 너무 많이 해서 타이밍 놓칠 때 있음.<br><br><strong>한 줄 요약</strong> 평소엔 피곤한데, 고장 나면 제일 먼저 찾게 되는 인간 디버거."
+        },
         "협력형": {
             name: "보살 리트리버",
             image: "./retriever.jpg",
-            desc: "너는 팀플만 시작하면 자동으로 반장도 아니고 엄마도 아닌데 다 챙기게 된다. 누가 안 해오면 네가 하고, 누가 모르겠다고 하면 네가 다시 설명하고, 분위기 싸해지면 ‘야 싸우지 말고 일단 하자’ 하면서 중간 정리까지 한다. 그러다 보면 이상하게 팀원은 4명인데 실질 노동력은 너 1명이다. 기숙사에서도 친구 과제 봐주다가 정작 네 과제는 새벽에 시작하는 타입. 애들은 ‘얘랑 하면 편함’ 이러는데, 현실은 ‘얘 없으면 우리 조 바로 침몰’이다. 착한데 불쌍하고, 불쌍한데 또 잘한다. <br><br><strong>한 줄 요약</strong> 팀플을 살리는 대신 본인 체력과 멘탈을 헌납하는 인간 보조배터리.",
-        weapons: ["Collaborative", "Communicative", "Supportive", "Teamwork skills", "Cooperatively"]
-    },
-
+            desc: "너는 팀플만 시작하면 자동으로 조장+엄마 역할이 된다. 누가 안 하면 네가 하고, 누가 모르겠다고 하면 네가 설명하고, 싸우면 네가 중재한다. 그러다 보면 팀원은 4명인데 실질 노동력은 너 혼자다. 기숙사에서도 친구 과제 봐주다가 정작 네 과제는 새벽에 시작하는 타입. 애들은 ‘얘랑 하면 편함’ 이러는데, 현실은 ‘얘 없으면 우리 조 바로 터짐’이다. 착한데 불쌍하고, 불쌍한데 또 잘한다.<br><br><strong>한 줄 요약</strong> 팀플을 살리는 대신 본인 체력과 멘탈을 갈아넣는 인간 보조배터리."
+        },
         "끈기형": {
             name: "밤샘 요정 햄스터",
             image: "./hamster.jpg",
-            desc: "너는 처음엔 존재감이 크지 않다. 근데 마지막에 보면 혼자 끝까지 살아남아 있는 타입이다. 남들 다 ‘아 모르겠다’ 하고 폰 보거나 드러누울 때도 너는 묵묵하게 계속 한다. 기숙사 불 다 꺼지고 나서도 이불 뒤집어쓰고 뭐 하나 계속 붙잡고 있는 인간. 속도는 빠르지 않을 수 있다. 근데 문제는 네가 멈추질 않는다는 거다. 그래서 처음엔 조용한 애 같다가도 결과 나오는 순간 ‘얘 언제 저걸 다 했냐?’ 소리 듣는다. 단점은 고집이 좀 세서, 몸은 죽겠는데도 스스로 멈출 생각이 없다는 거. 햄스터처럼 보여도 사실 정신력은 거의 보스몹이다. <br><br><strong>한 줄 요약</strong> 조용조용한 줄 알았는데 끝까지 버티고 결국 해내는 인간 근성의 화신.",
-        weapons: ["Persistent", "Responsible", "Strong work ethic", "Consistently", "Reliable"]
-    },
-
+            desc: "너는 시작할 때는 조용하다. 근데 끝날 때 보면 항상 살아남아 있다. 남들 다 ‘아 모르겠다’ 하고 폰 보거나 드러누울 때도 혼자 묵묵하게 계속 한다. 기숙사 불 다 꺼지고 나서도 이불 뒤집어쓰고 뭐 하나 계속 붙잡고 있는 인간. 속도는 빠르지 않을 수 있다. 근데 문제는 네가 멈추질 않는다는 거다. 그래서 처음엔 조용한 애 같다가도 결과 나오는 순간 ‘얘 언제 저걸 다 했냐?’ 소리 듣는다. 단점은 고집이 좀 세서, 몸은 죽겠는데도 스스로 멈출 생각이 없다는 거. 햄스터처럼 보여도 사실 정신력은 거의 보스몹이다.<br><br><strong>한 줄 요약</strong> 조용조용한 줄 알았는데 끝까지 버티고 결국 해내는 인간 근성의 화신."
+        },
         "도전형": {
             name: "초롱초롱 랫서팬더",
             image: "./panda.jpg",
-            desc: "너는 ‘하지 마’라는 말을 들으면 뇌에서 자동으로 ‘오 재밌겠다’로 번역된다. 남들 다 안전하게 가는 와중에 혼자 ‘근데 이렇게 하면 더 신박하지 않냐?’ 하면서 판 흔드는 타입이다. 선생님께서 ‘야 너 그거 만지지 마!!’라고 외칠 때, 보통 너는 이미 만지고 있다. 가끔은 진짜 사고 직전까지 가서 주변 애들 심장을 덜컹하게 만들지만, 또 웃긴 건 그렇게 설치다가 남들이 생각 못 한 길을 열어버린다는 거다. 그래서 평가가 늘 둘로 갈린다. ‘쟤 위험함’이랑 ‘쟤 없으면 노잼’. 통제는 안 되는데 묘하게 기대되는 스타일. <br><br><strong>한 줄 요약</strong> 사고 칠 확률도 높은데, 판을 살릴 확률도 높은 인간 변수 그 자체.",
-        weapons: ["Adaptable", "Creative", "Innovative", "Learning ability", "Actively"]
-    },
-
+            desc: "너는 ‘하지 마’라는 말을 들으면 뇌에서 자동으로 ‘오 재밌겠다’로 번역된다. 선생님께서 ‘야 너 그거 만지지 마!!’라고 외칠 때, 보통 너는 이미 만지고 있다. 남들 다 안전하게 가고 있을 때 혼자 ‘근데 이거 다른 방식으로 하면 더 빠르지 않냐?’ 하면서 판을 흔든다. 문제는 너가 진짜로 흔든다는 거다. 가끔은 상황을 더 키워서 욕 먹기도 하는데, 또 가끔은 남들 다 막힌 데서 길을 뚫어버린다. 그래서 평가가 늘 둘로 갈린다. ‘쟤 때문에 망함’ vs ‘쟤 아니었으면 더 망함’. 통제는 안 되는데 이상하게 필요함.<br><br><strong>한 줄 요약</strong> 사고 칠 확률 높음 / 근데 해결할 확률도 높음"
+        },
         "안전형": {
             name: "FM 미어캣",
             image: "./meerkat.jpg",
-            desc: "너는 사람이 아니라 거의 걸어다니는 안전수칙이다. 남들이 ‘에이 설마 괜찮겠지~’ 하면서 손 뻗을 때, 너는 이미 ‘잠깐 그거 위험함’ 하면서 제지하고 있다. 머릿속에서 항상 사고 시뮬레이션이 돌아가서, 남들은 그냥 넘어가는 것도 너는 위험 요소부터 본다. 그래서 친구들이 보기엔 약간 답답해 보일 때도 있다. ‘아 좀 대충 하자’ 소리 제일 많이 듣는 타입. 근데 진짜 뭔가 터질 뻔한 순간 오면, 다들 속으로 바로 반성한다. ‘아 쟤 말 들을걸...’ 재미는 조금 덜할 수 있어도, 너 덕분에 다들 멀쩡히 집 가는 거다. <br><br><strong>한 줄 요약</strong> 놀 땐 답답해 보여도 사고 나기 직전엔 다들 찾는 인간 안전벨트.",
-        weapons: ["Safety-conscious", "Responsible", "Risk-aware", "Safety awareness", "Follow safety rules"]
-    },
-
+            desc: "너는 사람이 아니라 거의 걸어다니는 안전수칙이다. 남들이 ‘에이 설마 괜찮겠지~’ 하면서 손 뻗을 때, 너는 이미 ‘잠깐 그거 위험함’ 하면서 제지하고 있다. 머릿속에서 항상 사고 시뮬레이션이 돌아가서, 남들은 그냥 넘어가는 것도 너는 위험 요소부터 본다. 그래서 친구들이 보기엔 약간 답답해 보일 때도 있다. ‘아 좀 대충 하자’ 소리 제일 많이 듣는 타입. 근데 진짜 뭔가 터질 뻔한 순간 오면, 다들 속으로 바로 반성한다. ‘아 쟤 말 들을걸...’ 재미는 조금 덜할 수 있어도, 너 덕분에 다들 멀쩡히 집 가는 거다.<br><br><strong>한 줄 요약</strong> 놀 땐 답답해 보여도 사고 나기 직전엔 다들 찾는 인간 안전벨트."
+        },
         "긍정형": {
             name: "에너자이저 쿼카",
             image: "./quokka.jpg",
-            desc: "멘탈 붕괴 현장에서도 V자를 그리는 타격감 제로의 사나이. 상황이 망했든 말든 ‘아 뭐 괜찮겠지ㅋㅋ’ 하면서 어지간한 일은 다 웃어넘긴다. 시험 망해도 ‘야 매점 ㄱ?’ 한마디로 분위기 리셋시키는 인간 비타민이고, 기숙사에서도 분위기 처지면 갑자기 드립 던져서 결국 다 웃게 만든다. 문제를 완벽하게 해결하진 못할 수도 있다. 근데 사람들 멘탈이 터지지 않게 붙들어주는 능력은 진짜 탑급이다. 가끔은 너무 해맑아서 ‘쟤는 진짜 심각성을 모르는 건가?’ 싶지만, 너 없으면 분위기 바로 처진다. <br><br><strong>한 줄 요약</strong> 문제 해결은 몰라도, 멘탈 캐리는 S급",
-        weapons: ["Energetic", "Optimistic", "Positive", "Supportive", "Enthusiastically"]
-    },
-
+            desc: "멘탈 붕괴 현장에서도 V자를 그리는 타격감 제로의 사나이. 상황이 망했든 말든 ‘아 뭐 괜찮겠지ㅋㅋ’ 하면서 어지간한 일은 다 웃어넘긴다. 시험 망해도 ‘야 매점 ㄱ?’ 한마디로 분위기 리셋시키는 인간 비타민이고, 기숙사에서도 분위기 처지면 갑자기 드립 던져서 결국 다 웃게 만든다. 문제를 완벽하게 해결하진 못할 수도 있다. 근데 사람들 멘탈이 터지지 않게 붙들어주는 능력은 진짜 탑급이다. 가끔은 너무 해맑아서 ‘쟤는 진짜 심각성을 모르는 건가?’ 싶지만, 너 없으면 분위기 바로 처진다.<br><br><strong>한 줄 요약</strong> 문제 해결은 몰라도, 멘탈 캐리는 S급"
+        },
         "실행형": {
             name: "노빠꾸 버팔로",
             image: "./buffalo.jpg",
-            desc: "너는 생각보다 행동이 먼저 튀어나가는 타입이다. 매뉴얼 책은 냄비 받침으로나 쓰고, 설명 듣다가 ‘아 대충 알겠음’ 싶으면 이미 시작했고, 옆 사람은 아직 문제 읽는 중인데 너는 반쯤 끝내고 있다. 계획? 없다. 일단 해본다. 그래서 가끔 사고 직전까지 가기도 한다. 근데 또 웃긴 건 이상하게 결과가 나오긴 나온다는 거다. 선생님께서 제일 많이 하는 말도 ‘야 생각 좀 하고 해라...’인데, 문제는 너 진짜 생각을 길게 안 한다. 근데 그게 또 장점이기도 하다. 남들은 고민하다 시간 다 쓰는데 너는 이미 몸으로 들이박고 있거든. 상남자 같지만 사실 그냥 성질 급한 실전파다. <br><br><strong>한 줄 요약</strong> 생각은 짧지만 실행력은 최강.",
-        weapons: ["Proactive", "Practical", "Execution ability", "Take initiative", "Actively"]
-    }
+            desc: "너는 생각이 아니라 손이 먼저 나간다. 매뉴얼 책은 냄비 받침으로나 쓰고, 설명 듣다가 ‘아 대충 알겠음’ 싶으면 이미 시작했고, 옆 사람은 아직 문제 읽는 중인데 너는 반쯤 끝내고 있다. 계획? 없다. 일단 해본다. 그래서 가끔 사고 직전까지 가기도 한다. 근데 또 웃긴 건 이상하게 결과가 나오긴 나온다는 거다. 선생님께서 제일 많이 하는 말도 ‘야 생각 좀 하고 해라...’인데, 문제는 너 진짜 생각을 길게 안 한다. 근데 그게 또 장점이기도 하다. 남들은 고민하다 시간 다 쓰는데 너는 이미 몸으로 들이박고 있거든. 상남자 같지만 사실 그냥 성질 급한 실전파다.<br><br><strong>한 줄 요약</strong> 생각은 짧고 실행력은 미친놈"
+        }
     };
 
     let currentIdx = 0;
@@ -624,6 +668,23 @@ options: [
         "협력형": 0,
         "끈기형": 0
     };
+
+    function pickRandom(arr) {
+        return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    function getRandomWeaponsByType(type) {
+    const pool = weaponPools[type];
+
+    return [
+        pickRandom(pool.basicAdjectives),
+        pickRandom(pool.proAdjectives),
+        pickRandom(pool.advancedAdjectives),
+        pickRandom(pool.nouns),
+        pickRandom(pool.verbPhrases),
+        pickRandom(pool.adverbs)
+    ];
+    }
 
     function startTest() {
         document.getElementById("start-screen").style.display = "none";
@@ -690,6 +751,7 @@ options: [
 
         const mainResult = resultsData[mainType];
         const subResult = resultsData[subType];
+        const randomWeapons = getRandomWeaponsByType(mainType);
 
         document.getElementById("result-name").innerText = mainResult.name;
         document.getElementById("result-desc").innerHTML = mainResult.desc;
@@ -704,7 +766,7 @@ options: [
         const weaponsBox = document.getElementById("result-weapons");
         weaponsBox.innerHTML = "";
 
-        mainResult.weapons.forEach(word => {
+        randomWeapons.forEach(word => {
             const span = document.createElement("span");
             span.className = "weapon-tag";
             span.innerText = word;
